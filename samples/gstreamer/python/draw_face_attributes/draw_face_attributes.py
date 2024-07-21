@@ -41,6 +41,7 @@ args = parser.parse_args()
 
 def frame_callback(frame: VideoFrame):
     with frame.data() as mat:
+        print ("This is a frame")
         for roi in frame.regions():
             labels = []
             rect = roi.rect()

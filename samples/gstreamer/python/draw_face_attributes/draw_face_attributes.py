@@ -106,7 +106,7 @@ def create_launch_string():
 
     return f"{source}={args.input} ! decodebin ! \
     videoconvert n-threads=4 ! capsfilter caps=\"video/x-raw,format=BGRx\" ! \
-    gvadetect model={args.detection_model} device=CPU ! queue ! \
+    gvadetect model={args.detection_model} device=GPU ! queue ! \
     gvainference model={args.classification_model1} device=CPU inference-region=roi-list ! queue ! \
     gvainference model={args.classification_model2} device=CPU inference-region=roi-list ! queue ! \
     gvainference model={args.classification_model3} device=CPU inference-region=roi-list ! queue ! \

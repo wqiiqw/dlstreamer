@@ -41,7 +41,7 @@ args = parser.parse_args()
 
 def frame_callback(frame: VideoFrame):
     with frame.data() as mat:
-        print ("This is a frame")
+        #print ("This is a frame")
         for roi in frame.regions():
             labels = []
             rect = roi.rect()
@@ -93,7 +93,7 @@ def create_launch_string():
         source = "filesrc location"
 
     if args.output == "display":
-        sink = "gvawatermark name=gvawatermark ! videoconvert n-threads=4 ! gvafpscounter ! autovideosink sync=false"
+        sink = "gvawatermark name=gvawatermark ! videoconvert n-threads=4 ! gvafpscounter ! autovideosink sync=true"
     elif args.output == "display-and-json":
         sink = "gvametaconvert ! gvametapublish file-format=json-lines file-path=output.json ! \
                gvawatermark name=gvawatermark ! videoconvert n-threads=4 ! gvafpscounter ! autovideosink sync=false"

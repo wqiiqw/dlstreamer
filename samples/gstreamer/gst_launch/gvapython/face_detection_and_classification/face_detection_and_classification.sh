@@ -17,7 +17,7 @@ PYTHON_SCRIPT2=$SCRIPTDIR/postproc_callbacks/age_gender_classification.py
 PYTHON_SCRIPT3=$SCRIPTDIR/postproc_callbacks/age_logger.py
 
 if [[ $OUTPUT == "display" ]] || [[ -z $OUTPUT ]]; then
-  SINK_ELEMENT="gvawatermark ! videoconvert ! gvafpscounter ! autovideosink sync=false"
+  SINK_ELEMENT="gvawatermark ! videoconvert ! gvafpscounter ! ximagesink sync=true"
 elif [[ $OUTPUT == "fps" ]]; then
   SINK_ELEMENT="gvafpscounter ! fakesink async=false "
 elif [[ $OUTPUT == "json" ]]; then
